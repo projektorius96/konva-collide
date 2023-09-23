@@ -90,8 +90,6 @@ if(defaultGroup.hasChildren){
   const shapeA$initFill = shapeA.getAttr('fill')
 
   shapeB.on('dragmove', function(){
-    console.log("shapeB (orange)", this.x(), this.y())
-    console.log("shapeA (green initially)", shapeA.x(), shapeA.y())
     // DEV_NOTE # Without Math.abs collision would work only for right and bottom sides
     if ( Math.abs(this.x()) <= shapeA.width() && Math.abs(this.y()) <= shapeA.height() ){
       shapeA.setAttr('fill', 'red')
