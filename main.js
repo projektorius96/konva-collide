@@ -47,8 +47,6 @@ globalThis.defaultStage = new Stage( { ...StageDefaults.getAttrs() } ).add(
       }
     ).add(
 
-      // GOAL: check if B's resultant coords (i.e. resultant ordered pair for each component x,y are equal or less width, height of A - if so then it collides)
-
       new Shape({
         name: 'shapeA',
         ...BoundingBoxDefaults.getAttrs()
@@ -92,7 +90,7 @@ if(defaultGroup.hasChildren){
   shapeB.on('dragmove', function(){
     // DEV_NOTE # Without Math.abs collision would work only for right and bottom sides
     if ( Math.abs(this.x()) <= shapeA.width() && Math.abs(this.y()) <= shapeA.height() ){
-      /* shapeA.setAttr('fill', 'red') */// instead do something more restrictive such as forced position resetting for shapeB (orange) once collided with shapeA (green)
+      shapeA.setAttr('fill', 'red')// instead do something more restrictive such as forced position resetting for shapeB (orange) once collided with shapeA (green)
       shapeB.setAttrs({ x: shapeB$initDims.x, y: shapeB$initDims.y  })
     }
     else {
